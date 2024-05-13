@@ -1,3 +1,4 @@
+<!-- index.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,15 +12,15 @@
 <body>
     <?php
         include 'sqlFunctions.php';
-        include 'mesFunctionsTable.php';
+        include 'list-employees.php';
+        include 'header.php';
+
 
         $users = getAllUsers();
         showTable($users);
     ?>
 
-    <a href="formUser.php?id=0" class="btn btn-primary">Créer un utilisateur</a>
+    <!-- <a href="addUserForm.php" class="btn btn-primary">Créer un utilisateur</a> -->
     
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

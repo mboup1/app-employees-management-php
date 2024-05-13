@@ -1,6 +1,8 @@
+<!-- createUpdate.php -->
+
 <?php
 	include 'sqlFunctions.php';
-	include 'mesFunctionsTable.php';
+	include 'list-employees.php';
 	$action = $_GET["action"];
 
 	if ($action == "DELETE") {
@@ -8,32 +10,30 @@
 	} else {
 		$id = $_GET["id"];
 		$name = $_GET["name"];
-		$firstname = $_GET["name"];
+		$firstname = $_GET["firstname"];
 		$age = $_GET["age"];
 		$adresse = $_GET["adresse"];
 		
 	}
-	
 
-	if ($action == "CREATE") {
-		createUser($name, $firstname, $age, $adresse);
 
-		echo "user cree <br>";
-		echo "<a href='index.php'>Liste des utilisateurs</a>";
-		
-	}
+if ($action == "CREATE") {
+	createUser($name, $firstname, $age, $adresse);
+	// Redirect to index.php after creating the user
+	header("Location: index.php");
+	exit(); 
+}
+
+
+if ($action == "UPDATE") {
+	updateUser($id, $name, $firstname, $age, $adresse);
+	header("Location: index.php");
+	exit();
+}
 	
-	if ($action == "UPDATE") {
-		updateUser($id, $name, $firstname, $age, $adresse);
-		echo "user update <br>";
-		echo "<a href='index.php'>Liste des utilisateurs</a>";
-	}
 	if ($action == "DELETE") {
 		deleteUser($id);
-		echo "user delete <br>";
-		echo "<a href='index.php'>Liste des utilisateurs</a>";
-	}
-	
-
-	
+		header("Location: index.php");
+		exit();
+	}	
 ?>
