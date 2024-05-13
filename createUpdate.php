@@ -1,6 +1,8 @@
 <!-- createUpdate.php -->
 
 <?php
+	session_start();
+
 	include 'sqlFunctions.php';
 	include 'list-employees.php';
 	$action = $_GET["action"];
@@ -19,7 +21,9 @@
 
 if ($action == "CREATE") {
 	createUser($name, $firstname, $age, $adresse);
-	// Redirect to index.php after creating the user
+
+	$_SESSION['message'] = "L'employé " . $_GET["firstname"] ." ".  $_GET["name"] . " a été ajouté avec succès!";
+
 	header("Location: index.php");
 	exit(); 
 }

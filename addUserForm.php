@@ -2,17 +2,23 @@
 <?php
 include 'sqlFunctions.php';
 include 'list-employees.php';
+include 'header.php';
 
 $user = getNewUser();
 
 ?>
 
-<html>
-<header>
-    <link rel="stylesheet" href="style.css">
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
 <body>
-    <a href="index.php">Liste des utilisateurs</a>
 
     <div class="row m-5">
         <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
@@ -38,11 +44,15 @@ $user = getNewUser();
                         <label for="adresse">Adresse :</label>
                         <textarea id="adresse" class="form-control" name="adresse"></textarea>
                     </div>
-                    <div class="d-flex">
-                        <button class="btn btn-success mx-auto" type="submit">Ajouter</button>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-success mr-2" type="submit">Ajouter</button>
+                        <div>
+                            <a href="index.php" class="btn btn-danger">Retour</a>
+                        </div>
                     </div>
                 </form>
             </div>
+            
         </div>
     </div>
 

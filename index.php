@@ -5,22 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- Bootstrap CSS -->
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-	<script src="script.js"></script>
 </head>
 <body>
     <?php
+
+        session_start();
+
         include 'sqlFunctions.php';
         include 'list-employees.php';
         include 'header.php';
+
+        if (isset($_SESSION['message'])) {
+            echo '<div class="alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
+
+            unset($_SESSION['message']);
+        header("refresh:3;url=index.php");
+
+    }
 
 
         $users = getAllUsers();
         showTable($users);
     ?>
-
-    <!-- <a href="addUserForm.php" class="btn btn-primary">Créer un utilisateur</a> -->
     
 </body>
 </html>

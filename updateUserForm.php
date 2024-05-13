@@ -2,18 +2,22 @@
 <?php
 include 'sqlFunctions.php';
 include 'list-employees.php';
+include 'header.php';
+
 
 $id = $_GET["id"];
 $user = readUser($id);
 ?>
 
-<html>
-<header>
-    <link rel="stylesheet" href="style.css">
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mettre à jour un utilisateur</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
-    <a href="index.php">Liste des utilisateurs</a>
-
     <div class="row m-5">
         <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
             <div class="bg-white shadow rounded p-4">
@@ -38,27 +42,14 @@ $user = readUser($id);
                         <label for="adresse">Adresse :</label>
                         <textarea id="adresse" class="form-control" name="adresse"><?php echo $user['adresse']; ?></textarea>
                     </div>
-                    <div class="d-flex">
-                        <button class="btn btn-success mx-auto" type="submit">Modifier</button>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-success mr-2" type="submit">Modifier</button>
+                        <a href="index.php" class="btn btn-danger">Retour</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
-    <?php ?>
-            <div class="row m-5">
-                <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
-                    <form action="createUpdate.php" method="get">
-                        <input type="hidden" name="action" value="DELETE"/>
-                        <input type="hidden" name="id" value="<?php echo $user['id']; ?>"/>
-                        <div class="form-group mb-3">
-                            <button class="btn btn-danger mx-auto" type="submit">Supprimer</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-    <?php ?>
 
 </body>
 </html>

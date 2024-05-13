@@ -2,12 +2,11 @@
 
 <?php
 
-
 function showTable($users)
 {
     ?>
 
-        <div class="bg-white shadow p-4 rounded">
+        <div class="bg-white shadow p-4 rounded container">
             <h1 class="display-6 text-dark text-center">Liste des utilisateurs</h1>
             <hr class="bg-dark text-dark">
             <table class="table table-striped">

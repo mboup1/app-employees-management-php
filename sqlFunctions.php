@@ -4,7 +4,6 @@
 include 'database.php';
 	
 
-	// récupere tous les users
 	function getAllUsers() {
 		$con = getDatabaseConnexion();
 		$requete = 'SELECT * from users';
@@ -12,7 +11,6 @@ include 'database.php';
 		return $rows;
 	}
 
-	// creer un user
 	function createUser($name, $firstname, $age, $adresse) {
 		try {
 			$con = getDatabaseConnexion();
@@ -25,7 +23,6 @@ include 'database.php';
 	    }
 	}
 
-	//recuperer un user
 	function readUser($id) {
 		$con = getDatabaseConnexion();
 		$requete = "SELECT * from users where id = '$id' ";
@@ -37,7 +34,6 @@ include 'database.php';
 		
 	}
 
-	//mettre à jour le user
 	function updateUser($id, $name, $firstname, $age, $adresse) {
 		try {
 			$con = getDatabaseConnexion();
